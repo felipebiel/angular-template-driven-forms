@@ -45,6 +45,7 @@ export class UsersService {
     return new Observable((observer) => {
       setTimeout(() => {
         observer.next(this.usersList);
+        observer.complete();
       }, 3000);
     });
   }
