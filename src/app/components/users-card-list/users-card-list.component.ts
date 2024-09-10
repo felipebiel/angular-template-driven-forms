@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { UsersListResponse } from '../../types/users-list-reponse';
 
 @Component({
   selector: 'app-users-card-list',
   templateUrl: './users-card-list.component.html',
-  styleUrl: './users-card-list.component.scss'
+  styleUrl: './users-card-list.component.scss',
 })
 export class UsersCardListComponent {
-
+  @Input() usersList: UsersListResponse = [];
 }
