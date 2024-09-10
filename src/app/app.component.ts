@@ -5,6 +5,7 @@ import { BrazilianStatesService } from './services/brazilian-states.service';
 import { UsersListResponse } from './types/users-list-reponse';
 import { GenresListResponse } from './types/genres-list-response';
 import { StatesListResponse } from './types/states-list-response';
+import { IUser } from './interfaces/user/user.interface';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,9 @@ import { StatesListResponse } from './types/states-list-response';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+  userSeletedCopy: IUser = {} as IUser;
+  userSeletedIndex: number | undefined;
+
   usersList: UsersListResponse = [];
   genresList: GenresListResponse = [];
   statesList: StatesListResponse = [];
@@ -26,6 +30,15 @@ export class AppComponent implements OnInit {
     this.getGenres();
     this.getStates();
   }
+
+  userSelected(userIndex: number) {
+    const userFound = this.usersList[userIndex];
+    if (userFound) {
+      this.userSeletedIndex = userIndex;
+      this.userSeletedCopy = structuredClone(userFound);
+    }
+  }
+
   private getStates() {
     this._BrazilianStatesService.getStates().subscribe((statesListResponse) => {
       console.log(statesListResponse);
