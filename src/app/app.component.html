@@ -1,5 +1,5 @@
 <div class="app">
-    <app-users-card-list [usersList]="usersList" (userSelected)="userSelected"></app-users-card-list>
+    <app-users-card-list [usersList]="usersList" (userSelected)="userSelected($event)"></app-users-card-list>
 
-    <app-user-form></app-user-form>
+    <app-user-form [genresList]="genresList" [statesList]="statesList" [userSelected]="userSeletedCopy"></app-user-form>
 </div>
