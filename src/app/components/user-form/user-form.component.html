@@ -70,6 +70,33 @@
           </mat-error>
         </mat-form-field>
       </div>
+      <div class="user-form__row">
+        <mat-form-field class="user-form__item user-form__item-50">
+          <mat-label>Senha:</mat-label>
+          <input
+            matInput
+            [(ngModel)]="userSelected.password"
+            required
+            name="password"
+            type="password"
+            #passwordControl="ngModel"
+            appPasswordStrengthValidator
+            required
+          />
+          <mat-error *ngIf="passwordControl.hasError('required')">
+            A
+            <b>Senha</b>
+            é obrigatória.
+          </mat-error>
+          <mat-error
+            *ngIf="passwordControl.hasError('invalidPasswordStrength') && !passwordControl.hasError('required')"
+          >
+            Digite uma Senha
+            <b>mais forte</b>
+            .
+          </mat-error>
+        </mat-form-field>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>
