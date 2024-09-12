@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   constructor(
     private readonly _usersServices: UsersService,
     private readonly _genresService: GenresService,
-    private readonly _BrazilianStatesService: BrazilianStatesService,
+    private readonly _BrazilianStatesService: BrazilianStatesService
   ) {}
 
   ngOnInit(): void {
@@ -40,22 +40,19 @@ export class AppComponent implements OnInit {
   }
 
   private getStates() {
-    this._BrazilianStatesService.getStates().subscribe((statesListResponse) => {
-      console.log(statesListResponse);
+    this._BrazilianStatesService.getStates().subscribe(statesListResponse => {
       this.statesList = statesListResponse;
     });
   }
 
   private getGenres() {
-    this._genresService.getGenres().subscribe((genresListResponse) => {
-      console.log(genresListResponse);
+    this._genresService.getGenres().subscribe(genresListResponse => {
       this.genresList = genresListResponse;
     });
   }
 
   private getUsers() {
-    this._usersServices.getUsers().subscribe((usersListResponse) => {
-      console.log(usersListResponse);
+    this._usersServices.getUsers().subscribe(usersListResponse => {
       this.usersList = usersListResponse;
     });
   }
