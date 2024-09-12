@@ -1,33 +1,75 @@
 <mat-card>
-    <mat-card-content>
-        <form action="" class="user-form">
-            <div class="user-form__row">
-                <mat-form-field class="user-form__item user-form__item-100">
-                    <mat-label>Nome: </mat-label>
-                    <input matInput [(ngModel)]="userSelected.name" required name="name">
-                    <mat-error>O <b>Nome</b> é obrigatório.</mat-error>
-                </mat-form-field>
-            </div>
-            <div class="user-form__row">
-                <mat-form-field class="user-form__item user-form__item-50">
-                    <mat-label>Usuário: </mat-label>
-                    <input matInput [(ngModel)]="userSelected.username" required name="username"
-                        #usernameControl="ngModel">
-                    <mat-hint>O <b>Usuário</b> será utilizado para o login.</mat-hint>
-                    <mat-error *ngIf="usernameControl.hasError('required')">O <b>Usuário</b> é obrigatório.</mat-error>
-                </mat-form-field>
+  <mat-card-content>
+    <form action="" class="user-form">
+      <div class="user-form__row">
+        <mat-form-field class="user-form__item user-form__item-100">
+          <mat-label>Nome:</mat-label>
+          <input matInput [(ngModel)]="userSelected.name" required name="name" />
+          <mat-error>
+            O
+            <b>Nome</b>
+            é obrigatório.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="user-form__row">
+        <mat-form-field class="user-form__item user-form__item-50">
+          <mat-label>Usuário:</mat-label>
+          <input
+            matInput
+            [(ngModel)]="userSelected.username"
+            [ngModelOptions]="{ updateOn: 'blur' }"
+            required
+            name="username"
+            #usernameControl="ngModel"
+            appCredentialValidator="username"
+          />
+          <mat-hint>
+            O
+            <b>Usuário</b>
+            será utilizado para o login.
+          </mat-hint>
+          <mat-error *ngIf="usernameControl.hasError('required')">
+            O
+            <b>Usuário</b>
+            é obrigatório.
+          </mat-error>
+          <mat-error *ngIf="usernameControl.hasError('invalidUsername') && !usernameControl.hasError('required')">
+            Este
+            <b>Usuário</b>
+            já está sendo utilizado
+          </mat-error>
+        </mat-form-field>
 
-                <mat-form-field class="user-form__item user-form__item-50">
-                    <mat-label>E-mail: </mat-label>
-                    <input matInput [(ngModel)]="userSelected.email" required appEmailPatternValidator name="email"
-                        #emailControl="ngModel">
-                    <mat-error *ngIf="emailControl.hasError('required')">O <b>E-mail</b> é obrigatório.</mat-error>
-                    <mat-error
-                        *ngIf="emailControl.hasError('invalidEmailPattern') && !emailControl.hasError('required')">O
-                        <b>E-mail</b> é
-                        deve ser válido.</mat-error>
-                </mat-form-field>
-            </div>
-        </form>
-    </mat-card-content>
+        <mat-form-field class="user-form__item user-form__item-50">
+          <mat-label>E-mail:</mat-label>
+          <input
+            matInput
+            [(ngModel)]="userSelected.email"
+            [ngModelOptions]="{ updateOn: 'blur' }"
+            required
+            appEmailPatternValidator
+            name="email"
+            #emailControl="ngModel"
+            appCredentialValidator="email"
+          />
+          <mat-error *ngIf="emailControl.hasError('required')">
+            O
+            <b>E-mail</b>
+            é obrigatório.
+          </mat-error>
+          <mat-error *ngIf="emailControl.hasError('invalidEmailPattern') && !emailControl.hasError('required')">
+            O
+            <b>E-mail</b>
+            é deve ser válido.
+          </mat-error>
+          <mat-error *ngIf="emailControl.hasError('invalidEmail') && !emailControl.hasError('required')">
+            Este
+            <b>E-mail</b>
+            já está sendo utilizado
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
 </mat-card>
