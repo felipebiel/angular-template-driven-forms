@@ -1,24 +1,35 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { GenresListResponse } from '../../types/genres-list-response';
 import { StatesListResponse } from '../../types/states-list-response';
 import { IUser } from '../../interfaces/user/user.interface';
 import { getPasswordStrengthValue } from '../../utils/get-password-strength-value';
+import { convertPtBrDateToDateObj } from '../../utils/convert-dates';
 
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.scss',
 })
-export class UserFormComponent implements OnChanges {
+export class UserFormComponent implements OnChanges, OnInit {
   @Input() genresList: GenresListResponse = [];
   @Input() statesList: StatesListResponse = [];
   @Input() userSelected: IUser = {} as IUser;
 
   passwordStrengthValue: number = 0;
+  minDate: Date | null = null;
+  maxDate: Date | null = null;
+  dateValue: Date | null = null;
+
+  ngOnInit(): void {
+    this.setMinAndMaxDate();
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     const USER_CHANGED = changes['userSelected'];
-    if (USER_CHANGED) this.onPasswordChange(this.userSelected.password);
+    if (USER_CHANGED) {
+      this.onPasswordChange(this.userSelected.password);
+      this.setBirthDateToDatepicker(this.userSelected.birthDate);
+    }
   }
 
   onPasswordChange(password: string) {
@@ -33,5 +44,14 @@ export class UserFormComponent implements OnChanges {
       'medium-password': this.passwordStrengthValue === 60,
       'strong-password': this.passwordStrengthValue === 100,
     };
+  }
+
+  private setMinAndMaxDate() {
+    this.minDate = new Date(new Date().getFullYear() - 100, 0, 1);
+    this.maxDate = new Date();
+  }
+
+  private setBirthDateToDatepicker(birthDate: string) {
+    this.dateValue = convertPtBrDateToDateObj(birthDate);
   }
 }
