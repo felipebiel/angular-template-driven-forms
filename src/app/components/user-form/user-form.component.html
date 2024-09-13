@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-content>
-    <form action="" class="user-form">
+    <form action="" class="user-form" appPasswordConfirmationValidation #userForm="ngForm">
       <div class="user-form__row">
         <mat-form-field class="user-form__item user-form__item-100">
           <mat-label>Nome:</mat-label>
@@ -97,6 +97,34 @@
             .
           </mat-error>
           <mat-progress-bar [value]="passwordStrengthValue" [ngClass]="prepareProgressColorClass()"></mat-progress-bar>
+        </mat-form-field>
+
+        <mat-form-field class="user-form__item user-form__item-50">
+          <mat-label>Confirmar senha:</mat-label>
+          <input
+            matInput
+            ngModel
+            required
+            name="passwordConfirmation"
+            type="password"
+            #passwordConfirmationControl="ngModel"
+            autocomplete="off"
+          />
+          <mat-error *ngIf="passwordConfirmationControl.hasError('required')">
+            A
+            <b>Confirmação</b>
+            é obrigatória.
+          </mat-error>
+          <mat-error
+            *ngIf="
+              passwordConfirmationControl.hasError('invalidPasswordConfirmation') &&
+              !passwordConfirmationControl.hasError('required')
+            "
+          >
+            As
+            <b>senhas</b>
+            estão incorretas
+          </mat-error>
         </mat-form-field>
       </div>
     </form>
