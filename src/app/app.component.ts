@@ -47,17 +47,27 @@ export class AppComponent implements OnInit {
     if (this.userSeletedIndex === undefined) return;
 
     const originalUser = this.usersList[this.userSeletedIndex];
-    this.openBewforeAndAfterDialog(originalUser, this.userSeletedCopy);
+    this.openBewforeAndAfterDialog(originalUser, this.userSeletedCopy, this.userSeletedIndex);
   }
 
-  openBewforeAndAfterDialog(originalUser: IUser, updatedUser: IUser) {
-    this._dialog.open(UserBeforeAndAfterDialogComponent, {
+  openBewforeAndAfterDialog(originalUser: IUser, updatedUser: IUser, userSeletedIndex: number) {
+    const dialogRef = this._dialog.open(UserBeforeAndAfterDialogComponent, {
       data: {
         originalUser,
         updatedUser,
       },
       minWidth: '70%',
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.confirmUserUpdate(updatedUser, userSeletedIndex);
+      }
+    });
+  }
+
+  confirmUserUpdate(updatedUser: IUser, userSeletedIndex: number) {
+    this.usersList[userSeletedIndex] = structuredClone(updatedUser);
   }
 
   private getStates() {
