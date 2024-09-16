@@ -2,9 +2,11 @@
   <app-users-card-list [usersList]="usersList" (userSelected)="userSelected($event)"></app-users-card-list>
 
   <app-user-form
+    *ngIf="userSeletedIndex !== undefined"
     [genresList]="genresList"
     [statesList]="statesList"
     [userSelected]="userSeletedCopy"
     (formSubmit)="onFormSubmit()"
+    (cancelSubmit)="onCancelSubmit()"
   ></app-user-form>
 </div>

@@ -18,6 +18,7 @@ export class UserFormComponent implements OnChanges, OnInit {
   @Input() userSelected: IUser = {} as IUser;
 
   @Output() formSubmit = new EventEmitter<void>();
+  @Output() cancelSubmit = new EventEmitter<void>();
 
   passwordStrengthValue: number = 0;
   minDate: Date | null = null;
@@ -99,6 +100,10 @@ export class UserFormComponent implements OnChanges, OnInit {
         break;
       }
     }
+  }
+
+  onCancelUpdate() {
+    this.cancelSubmit.emit();
   }
 
   private setMinAndMaxDate() {

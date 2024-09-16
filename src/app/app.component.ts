@@ -70,6 +70,10 @@ export class AppComponent implements OnInit {
     this.usersList[userSeletedIndex] = structuredClone(updatedUser);
   }
 
+  onCancelSubmit() {
+    this.userSeletedIndex = undefined;
+  }
+
   private getStates() {
     this._brazilianStatesService.getStates().subscribe(statesListResponse => {
       this.statesList = statesListResponse;
