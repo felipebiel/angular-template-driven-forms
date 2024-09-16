@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   constructor(
     private readonly _usersServices: UsersService,
     private readonly _genresService: GenresService,
-    private readonly _BrazilianStatesService: BrazilianStatesService,
+    private readonly _brazilianStatesService: BrazilianStatesService,
     private readonly _dialog: MatDialog
   ) {}
 
@@ -61,7 +61,7 @@ export class AppComponent implements OnInit {
   }
 
   private getStates() {
-    this._BrazilianStatesService.getStates().subscribe(statesListResponse => {
+    this._brazilianStatesService.getStates().subscribe(statesListResponse => {
       this.statesList = statesListResponse;
     });
   }

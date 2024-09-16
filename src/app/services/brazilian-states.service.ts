@@ -37,11 +37,17 @@ export class BrazilianStatesService {
   ];
 
   getStates(): Observable<StatesListResponse> {
-    return new Observable((observer) => {
+    return new Observable(observer => {
       setTimeout(() => {
         observer.next(this.statesList);
         observer.complete();
       }, 3000);
     });
+  }
+
+  getStateDescription(stateId: number): string {
+    const stateDescription = this.statesList.find(state => state.id === stateId)?.nome;
+
+    return stateDescription ? stateDescription : '';
   }
 }

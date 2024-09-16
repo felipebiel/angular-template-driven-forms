@@ -52,11 +52,11 @@
     <div class="infos__row">
       <div class="infos__item">
         <b>Estado:</b>
-        {{ data.originalUser.state }}
+        {{ data.originalUser.state | stateDescription }}
       </div>
       <div class="infos__item">
         <b>Estado:</b>
-        {{ data.updatedUser.state }}
+        {{ data.updatedUser.state | stateDescription }}
       </div>
     </div>
 
