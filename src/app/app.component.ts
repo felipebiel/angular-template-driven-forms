@@ -44,11 +44,18 @@ export class AppComponent implements OnInit {
   }
 
   onFormSubmit() {
-    this.openBewforeAndAfterDialog();
+    if (this.userSeletedIndex === undefined) return;
+
+    const originalUser = this.usersList[this.userSeletedIndex];
+    this.openBewforeAndAfterDialog(originalUser, this.userSeletedCopy);
   }
 
-  openBewforeAndAfterDialog() {
+  openBewforeAndAfterDialog(originalUser: IUser, updatedUser: IUser) {
     this._dialog.open(UserBeforeAndAfterDialogComponent, {
+      data: {
+        originalUser,
+        updatedUser,
+      },
       minWidth: '70%',
     });
   }

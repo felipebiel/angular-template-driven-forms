@@ -6,9 +6,105 @@
       <div class="infos__item infos__header infos__header--border-top-right">Depois</div>
     </div>
     <div class="infos__row">
-      <div class="infos__item"><b>Nome:</b></div>
-      <div class="infos__item"><b>Nome:</b></div>
+      <div class="infos__item">
+        <b>Nome:</b>
+        {{ data.originalUser.name }}
+      </div>
+      <div class="infos__item">
+        <b>Nome:</b>
+        {{ data.updatedUser.name }}
+      </div>
     </div>
+
+    <div class="infos__row">
+      <div class="infos__item">
+        <b>Usuário:</b>
+        {{ data.originalUser.username }}
+      </div>
+      <div class="infos__item">
+        <b>Usuário:</b>
+        {{ data.updatedUser.username }}
+      </div>
+    </div>
+
+    <div class="infos__row">
+      <div class="infos__item">
+        <b>E-mail:</b>
+        {{ data.originalUser.email }}
+      </div>
+      <div class="infos__item">
+        <b>E-mail:</b>
+        {{ data.updatedUser.email }}
+      </div>
+    </div>
+
+    <div class="infos__row">
+      <div class="infos__item">
+        <b>Senha:</b>
+        {{ data.originalUser.password }}
+      </div>
+      <div class="infos__item">
+        <b>Senha:</b>
+        {{ data.updatedUser.password }}
+      </div>
+    </div>
+
+    <div class="infos__row">
+      <div class="infos__item">
+        <b>Estado:</b>
+        {{ data.originalUser.state }}
+      </div>
+      <div class="infos__item">
+        <b>Estado:</b>
+        {{ data.updatedUser.state }}
+      </div>
+    </div>
+
+    <ng-container *ngFor="let music of data.originalUser.musics; let i = index">
+      <div class="infos__row">
+        <div class="infos__item">
+          <b>Música {{ i + 1 }} Título:</b>
+          {{ music.title }}
+        </div>
+        <div class="infos__item">
+          <b>Música {{ i + 1 }} Título:</b>
+          {{ data.updatedUser.musics[i].title }}
+        </div>
+      </div>
+
+      <div class="infos__row">
+        <div class="infos__item">
+          <b>Música {{ i + 1 }} Banda:</b>
+          {{ music.band }}
+        </div>
+        <div class="infos__item">
+          <b>Música {{ i + 1 }} Banda:</b>
+          {{ data.updatedUser.musics[i].band }}
+        </div>
+      </div>
+
+      <div class="infos__row">
+        <div class="infos__item">
+          <b>Música {{ i + 1 }} Gênero:</b>
+          {{ music.genre }}
+        </div>
+        <div class="infos__item">
+          <b>Música {{ i + 1 }} Gênero:</b>
+          {{ data.updatedUser.musics[i].genre }}
+        </div>
+      </div>
+
+      <div class="infos__row">
+        <div class="infos__item">
+          <b>Música {{ i + 1 }} Favorita:</b>
+          {{ music.isFavorite }}
+        </div>
+        <div class="infos__item">
+          <b>Música {{ i + 1 }} Favorita:</b>
+          {{ data.updatedUser.musics[i].isFavorite }}
+        </div>
+      </div>
+    </ng-container>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
