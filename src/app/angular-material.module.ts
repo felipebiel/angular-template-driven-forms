@@ -6,6 +6,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
 
 import { provideNativeDateAdapter } from '@angular/material/core';
 
@@ -18,6 +20,8 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatDatepickerModule,
     MatButtonModule,
     MatSelectModule,
+    MatDividerModule,
+    MatTableModule,
   ],
   exports: [
     MatCardModule,
@@ -27,6 +31,8 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatDatepickerModule,
     MatButtonModule,
     MatSelectModule,
+    MatDividerModule,
+    MatTableModule,
   ],
   providers: [provideNativeDateAdapter()],
 })

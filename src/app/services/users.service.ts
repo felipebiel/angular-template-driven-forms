@@ -14,7 +14,10 @@ export class UsersService {
       password: 'senha1',
       birthDate: '01/12/1990',
       state: 13,
-      musics: [{ title: 'Musica 1', band: 'Banda A', genre: 8, isFavorite: false }],
+      musics: [
+        { title: 'Musica 1', band: 'Banda A', genre: 8, isFavorite: false },
+        { title: 'Musica 2', band: 'Banda A', genre: 5, isFavorite: true },
+      ],
     },
     {
       name: 'Usuário 2',

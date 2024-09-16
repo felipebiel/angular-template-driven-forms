@@ -21,6 +21,8 @@ export class UserFormComponent implements OnChanges, OnInit {
   maxDate: Date | null = null;
   dateValue: Date | null = null;
 
+  displayedColumns: string[] = ['title', 'band', 'genre', 'favorite'];
+
   ngOnInit(): void {
     this.setMinAndMaxDate();
   }
