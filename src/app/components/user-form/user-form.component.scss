@@ -1,6 +1,9 @@
 .user-form {
     height: 100%;
     padding: 20px;
+    @media (max-width: 600px) {
+        padding: 0px;
+    }
 
     &__row {
         width: 100%;
