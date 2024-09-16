@@ -11,6 +11,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
+
 import { provideNativeDateAdapter } from '@angular/material/core';
 
 @NgModule({
@@ -26,6 +28,10 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatTableModule,
     MatAutocompleteModule,
     MatCheckboxModule,
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogTitle,
   ],
   exports: [
     MatCardModule,
@@ -39,6 +45,10 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatTableModule,
     MatAutocompleteModule,
     MatCheckboxModule,
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogTitle,
   ],
   providers: [provideNativeDateAdapter()],
 })

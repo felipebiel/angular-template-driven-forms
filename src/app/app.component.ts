@@ -6,6 +6,8 @@ import { UsersListResponse } from './types/users-list-reponse';
 import { GenresListResponse } from './types/genres-list-response';
 import { StatesListResponse } from './types/states-list-response';
 import { IUser } from './interfaces/user/user.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { UserBeforeAndAfterDialogComponent } from './components/user-before-and-after-dialog/user-before-and-after-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -19,10 +21,12 @@ export class AppComponent implements OnInit {
   usersList: UsersListResponse = [];
   genresList: GenresListResponse = [];
   statesList: StatesListResponse = [];
+
   constructor(
     private readonly _usersServices: UsersService,
     private readonly _genresService: GenresService,
-    private readonly _BrazilianStatesService: BrazilianStatesService
+    private readonly _BrazilianStatesService: BrazilianStatesService,
+    private readonly _dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -37,6 +41,16 @@ export class AppComponent implements OnInit {
       this.userSeletedIndex = userIndex;
       this.userSeletedCopy = structuredClone(userFound);
     }
+  }
+
+  onFormSubmit() {
+    this.openBewforeAndAfterDialog();
+  }
+
+  openBewforeAndAfterDialog() {
+    this._dialog.open(UserBeforeAndAfterDialogComponent, {
+      minWidth: '70%',
+    });
   }
 
   private getStates() {
