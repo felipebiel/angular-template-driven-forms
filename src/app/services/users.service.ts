@@ -15,8 +15,8 @@ export class UsersService {
       birthDate: '01/12/1990',
       state: 13,
       musics: [
-        { title: 'Musica 1', band: 'Banda A', genre: 8, isFavorite: false },
-        { title: 'Musica 2', band: 'Banda A', genre: 5, isFavorite: true },
+        { title: 'Musica 1', band: 'Banda A', genre: 2, isFavorite: false },
+        { title: 'Musica 2', band: 'Banda A', genre: 1, isFavorite: true },
       ],
     },
     {
@@ -26,7 +26,7 @@ export class UsersService {
       password: 'senha2215@',
       birthDate: '01/12/1990',
       state: 11,
-      musics: [{ title: 'Musica 1', band: 'Banda A', genre: 8, isFavorite: false }],
+      musics: [{ title: 'Musica 1', band: 'Banda A', genre: 2, isFavorite: false }],
     },
     {
       name: 'Usuário 3',
@@ -35,7 +35,7 @@ export class UsersService {
       password: 'senha2215@212112135288',
       birthDate: '01/12/1990',
       state: 8,
-      musics: [{ title: 'Musica 1', band: 'Banda A', genre: 8, isFavorite: false }],
+      musics: [{ title: 'Musica 1', band: 'Banda A', genre: 1, isFavorite: false }],
     },
   ];
 

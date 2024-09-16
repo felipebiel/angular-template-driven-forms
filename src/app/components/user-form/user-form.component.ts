@@ -22,6 +22,7 @@ export class UserFormComponent implements OnChanges, OnInit {
   dateValue: Date | null = null;
 
   displayedColumns: string[] = ['title', 'band', 'genre', 'favorite'];
+  filteredGenresList: GenresListResponse = [];
 
   ngOnInit(): void {
     this.setMinAndMaxDate();
@@ -32,6 +33,7 @@ export class UserFormComponent implements OnChanges, OnInit {
     if (USER_CHANGED) {
       this.onPasswordChange(this.userSelected.password);
       this.setBirthDateToDatepicker(this.userSelected.birthDate);
+      this.filteredGenresList = this.genresList;
     }
   }
 
@@ -54,7 +56,20 @@ export class UserFormComponent implements OnChanges, OnInit {
     if (!$event.value) return;
 
     this.userSelected.birthDate = convertDateObjToPTBrDate($event.value);
-    console.log(this.userSelected);
+  }
+
+  displayFn(genreId: number): string {
+    const genreFound = this.genresList.find(genre => genre.id === genreId);
+    return genreFound ? genreFound.description : '';
+  }
+
+  filterGenres(search: string) {
+    if (typeof search === 'number') return;
+    const searchTerm = search.toLocaleLowerCase();
+
+    this.filteredGenresList = this.genresList.filter(genre =>
+      genre.description.toLocaleLowerCase().includes(searchTerm)
+    );
   }
 
   private setMinAndMaxDate() {

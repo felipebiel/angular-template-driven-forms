@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { provideNativeDateAdapter } from '@angular/material/core';
 
@@ -22,6 +23,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatSelectModule,
     MatDividerModule,
     MatTableModule,
+    MatAutocompleteModule,
   ],
   exports: [
     MatCardModule,
@@ -33,6 +35,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatSelectModule,
     MatDividerModule,
     MatTableModule,
+    MatAutocompleteModule,
   ],
   providers: [provideNativeDateAdapter()],
 })
