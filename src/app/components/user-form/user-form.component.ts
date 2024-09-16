@@ -72,6 +72,10 @@ export class UserFormComponent implements OnChanges, OnInit {
     );
   }
 
+  isAnyCheckboxChecked(): boolean {
+    return this.userSelected.musics.some(music => music.isFavorite);
+  }
+
   private setMinAndMaxDate() {
     this.minDate = new Date(new Date().getFullYear() - 100, 0, 1);
     this.maxDate = new Date();

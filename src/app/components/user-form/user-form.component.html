@@ -237,7 +237,13 @@
 
             <ng-container matColumnDef="favorite">
               <th mat-header-cell *matHeaderCellDef>Favorita</th>
-              <td mat-cell *matCellDef="let element">{{ element.isFavorite }}</td>
+              <td mat-cell *matCellDef="let element; let i = index">
+                <mat-checkbox
+                  [name]="'favorite-' + i"
+                  [(ngModel)]="element.isFavorite"
+                  [disabled]="isAnyCheckboxChecked() && !element.isFavorite"
+                ></mat-checkbox>
+              </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
