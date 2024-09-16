@@ -86,11 +86,11 @@
       <div class="infos__row">
         <div class="infos__item">
           <b>Música {{ i + 1 }} Gênero:</b>
-          {{ music.genre }}
+          {{ music.genre | genreDescription }}
         </div>
         <div class="infos__item">
           <b>Música {{ i + 1 }} Gênero:</b>
-          {{ data.updatedUser.musics[i].genre }}
+          {{ data.updatedUser.musics[i].genre | genreDescription }}
         </div>
       </div>
 

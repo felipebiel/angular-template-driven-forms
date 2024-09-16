@@ -12,11 +12,17 @@ export class GenresService {
   ];
 
   getGenres(): Observable<GenresListResponse> {
-    return new Observable((observer) => {
+    return new Observable(observer => {
       setTimeout(() => {
         observer.next(this.genresList);
         observer.complete();
       }, 3000);
     });
+  }
+
+  getGenreDescription(genreId: number): string {
+    const genreDescription = this.genresList.find(genre => genre.id === genreId)?.description;
+
+    return genreDescription ? genreDescription : '';
   }
 }
