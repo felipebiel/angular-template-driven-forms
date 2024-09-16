@@ -22,7 +22,7 @@ export class UsersService {
       email: 'usuario2@email.com',
       password: 'senha2215@',
       birthDate: '01/12/1990',
-      state: 13,
+      state: 11,
       musics: [{ title: 'Musica 1', band: 'Banda A', genre: 8, isFavorite: false }],
     },
     {
@@ -31,7 +31,7 @@ export class UsersService {
       email: 'usuario3@email.com',
       password: 'senha2215@212112135288',
       birthDate: '01/12/1990',
-      state: 13,
+      state: 8,
       musics: [{ title: 'Musica 1', band: 'Banda A', genre: 8, isFavorite: false }],
     },
   ];

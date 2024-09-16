@@ -155,6 +155,19 @@
             é obrigatória.
           </mat-error>
         </mat-form-field>
+
+        <mat-form-field class="user-form__item user-form__item-50">
+          <mat-label>Estado:</mat-label>
+          <mat-select name="state" [(ngModel)]="userSelected.state" required>
+            <mat-option>-</mat-option>
+            <mat-option *ngFor="let state of statesList" [value]="state.id">{{ state.nome }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="passwordControl.hasError('required')">
+            O
+            <b>Estado</b>
+            é obrigatório.
+          </mat-error>
+        </mat-form-field>
       </div>
     </form>
   </mat-card-content>
