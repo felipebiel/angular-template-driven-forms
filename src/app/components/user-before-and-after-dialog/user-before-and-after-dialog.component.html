@@ -97,11 +97,11 @@
       <div class="infos__row">
         <div class="infos__item">
           <b>Música {{ i + 1 }} Favorita:</b>
-          {{ music.isFavorite }}
+          {{ music.isFavorite | isFavoriteDescription }}
         </div>
         <div class="infos__item">
           <b>Música {{ i + 1 }} Favorita:</b>
-          {{ data.updatedUser.musics[i].isFavorite }}
+          {{ data.updatedUser.musics[i].isFavorite | isFavoriteDescription }}
         </div>
       </div>
     </ng-container>
