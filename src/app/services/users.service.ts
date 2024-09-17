@@ -1,50 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { delay, Observable } from 'rxjs';
 import { UsersListResponse } from '../types/users-list-reponse';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
-  private readonly usersList: UsersListResponse = [
-    {
-      name: 'Usuário 1',
-      username: 'usuario1',
-      email: 'usuario1@email.com',
-      password: 'senha1',
-      birthDate: '01/12/1990',
-      state: 13,
-      musics: [
-        { title: 'Musica 1', band: 'Banda A', genre: 2, isFavorite: false },
-        { title: 'Musica 2', band: 'Banda A', genre: 1, isFavorite: true },
-      ],
-    },
-    {
-      name: 'Usuário 2',
-      username: 'usuario2',
-      email: 'usuario2@email.com',
-      password: 'senha2215@',
-      birthDate: '01/12/1990',
-      state: 11,
-      musics: [{ title: 'Musica 1', band: 'Banda A', genre: 2, isFavorite: false }],
-    },
-    {
-      name: 'Usuário 3',
-      username: 'usuario3',
-      email: 'usuario3@email.com',
-      password: 'senha2215@212112135288',
-      birthDate: '01/12/1990',
-      state: 8,
-      musics: [{ title: 'Musica 1', band: 'Banda A', genre: 1, isFavorite: false }],
-    },
-  ];
+  private url: string = 'http://localhost:3000/users';
+  constructor(private readonly _httpClient: HttpClient) {}
 
   getUsers(): Observable<UsersListResponse> {
-    return new Observable(observer => {
-      setTimeout(() => {
-        observer.next(this.usersList);
-        observer.complete();
-      }, 3000);
-    });
+    return this._httpClient.get<UsersListResponse>(this.url).pipe(delay(3000));
   }
 }

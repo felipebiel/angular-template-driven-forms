@@ -1,1 +1,61 @@
-{}
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Usuário 1",
+            "username": "usuario1",
+            "email": "usuario1@email.com",
+            "password": "senha1",
+            "birthDate": "01/12/1990",
+            "state": 13,
+            "musics": [
+              {
+                "title": "Musica 1",
+                "band": "Banda A",
+                "genre": 2,
+                "isFavorite": false
+              },
+              {
+                "title": "Musica 2",
+                "band": "Banda A",
+                "genre": 1,
+                "isFavorite": true
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "Usuário 2",
+            "username": "usuario2",
+            "email": "usuario2@email.com",
+            "password": "senha2215@",
+            "birthDate": "01/12/1990",
+            "state": 11,
+            "musics": [
+              {
+                "title": "Musica 1",
+                "band": "Banda A",
+                "genre": 2,
+                "isFavorite": false
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "Usuário 3",
+            "username": "usuario3",
+            "email": "usuario3@email.com",
+            "password": "senha2215@212112135288",
+            "birthDate": "01/12/1990",
+            "state": 8,
+            "musics": [
+              {
+                "title": "Musica 1",
+                "band": "Banda A",
+                "genre": 1,
+                "isFavorite": false
+              }
+            ]
+          }
+    ]
+}
