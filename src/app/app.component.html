@@ -1,5 +1,10 @@
 <div class="app">
-  <app-users-card-list [usersList]="usersList" (userSelected)="userSelected($event)"></app-users-card-list>
+  <div *ngIf="usersList$ | async as usersList; else loading">
+    <app-users-card-list [usersList]="usersList" (userSelected)="userSelected($event)"></app-users-card-list>
+  </div>
+  <ng-template #loading>
+    <app-user-list-loading></app-user-list-loading>
+  </ng-template>
 
   <app-user-form
     *ngIf="userSeletedIndex !== undefined"

@@ -10,8 +10,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
 import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { provideNativeDateAdapter } from '@angular/material/core';
 
@@ -32,6 +32,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatDialogClose,
     MatDialogContent,
     MatDialogTitle,
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatCardModule,
@@ -49,6 +50,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatDialogClose,
     MatDialogContent,
     MatDialogTitle,
+    MatProgressSpinnerModule,
   ],
   providers: [provideNativeDateAdapter()],
 })

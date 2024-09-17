@@ -8,6 +8,7 @@ import { StatesListResponse } from './types/states-list-response';
 import { IUser } from './interfaces/user/user.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { UserBeforeAndAfterDialogComponent } from './components/user-before-and-after-dialog/user-before-and-after-dialog.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
   userSeletedIndex: number | undefined;
 
   usersList: UsersListResponse = [];
+  usersList$!: Observable<UsersListResponse>;
   genresList: GenresListResponse = [];
   statesList: StatesListResponse = [];
 
@@ -89,8 +91,6 @@ export class AppComponent implements OnInit {
   }
 
   private getUsers() {
-    this._usersServices.getUsers().subscribe(usersListResponse => {
-      this.usersList = usersListResponse;
-    });
+    this.usersList$ = this._usersServices.getUsers();
   }
 }

@@ -1,0 +1,12 @@
+.user-list-loading {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+
+    &__spinner {
+        --mdc-circular-progress-active-indicator-color: #f84633 !important
+    }
+}
