@@ -67,7 +67,9 @@ export class AppComponent implements OnInit {
   }
 
   confirmUserUpdate(updatedUser: IUser, userSeletedIndex: number) {
-    this.usersList[userSeletedIndex] = structuredClone(updatedUser);
+    this._usersServices.updateUser(updatedUser.id, updatedUser).subscribe(response => {
+      this.usersList[userSeletedIndex] = structuredClone(response);
+    });
   }
 
   onCancelSubmit() {

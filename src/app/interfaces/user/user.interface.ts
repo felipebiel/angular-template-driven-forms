@@ -1,6 +1,7 @@
 import { IMusic } from './music.interface';
 
 export interface IUser {
+  id: number | string;
   name: string;
   username: string;
   email: string;
