@@ -1,5 +1,5 @@
 <div class="app">
-  <div *ngIf="usersList$ | async as usersList; else loading">
+  <div *ngIf="usersList$ | async as usersList; else loading" class="animate__animated animate__fadeIn">
     <app-users-card-list [usersList]="usersList" (userSelected)="userSelected($event)"></app-users-card-list>
   </div>
   <ng-template #loading>
